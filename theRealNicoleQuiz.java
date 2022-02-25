@@ -78,13 +78,54 @@ public class theRealNicoleQuiz extends JFrame {
 		secondQuestion.add(question_2);
 		
 		JPanel thirdQuestion = new JPanel();
-		thirdQuestion.setBounds(0, 0, 436, 263);
+		thirdQuestion.setBounds(0, 183, 436, 80);
 		panel.add(thirdQuestion);
 		thirdQuestion.setLayout(null);
 		
 		JLabel question_3 = new JLabel("3. What does Nicole fear most?");
 		question_3.setBounds(188, 32, 189, 14);
 		thirdQuestion.add(question_3);
+		
+		JPanel fourthQuestion = new JPanel();
+		fourthQuestion.setBounds(0, 155, 436, 108);
+		panel.add(fourthQuestion);
+		fourthQuestion.setLayout(null);
+		
+		JLabel question_4 = new JLabel("4. What is Nicole's last name?");
+		question_4.setBounds(207, 38, 49, 14);
+		fourthQuestion.add(question_4);
+		
+		JPanel fifthQuestion = new JPanel();
+		fifthQuestion.setBounds(0, 129, 436, 134);
+		panel.add(fifthQuestion);
+		fifthQuestion.setLayout(null);
+		
+		JLabel question_5 = new JLabel("5. What is Nicole's favourite way of getting around?");
+		question_5.setBounds(171, 26, 49, 14);
+		fifthQuestion.add(question_5);
+		
+		JPanel scorePage = new JPanel();
+		scorePage.setBounds(0, 0, 436, 263);
+		panel.add(scorePage);
+		scorePage.setLayout(null);
+		
+		JLabel yay = new JLabel("You finished the quiz! Yay!");
+		yay.setBounds(194, 28, 187, 14);
+		scorePage.add(yay);
+		
+		JLabel displayScore = new JLabel("You scored:");
+		displayScore.setBounds(194, 46, 49, 14);
+		scorePage.add(displayScore);
+		
+		JLabel scoreFraction = new JLabel("0");
+		scoreFraction.setBounds(194, 63, 49, 14);
+		scorePage.add(scoreFraction);
+		
+		JLabel outOfFraction = new JLabel("/5");
+		outOfFraction.setBounds(253, 63, 49, 14);
+		scorePage.add(outOfFraction);
+		
+		// HERE'S WHERE THE BUTTON BEGIN!
 		
 		
 		
