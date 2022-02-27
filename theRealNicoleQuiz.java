@@ -47,7 +47,7 @@ public class theRealNicoleQuiz extends JFrame {
 		panel.setLayout(null);
 		
 		JPanel startPage = new JPanel();
-		startPage.setBounds(0, 0, 436, 263);
+		startPage.setBounds(0, 243, 436, 20);
 		panel.add(startPage);
 		startPage.setLayout(null);
 		
@@ -64,7 +64,7 @@ public class theRealNicoleQuiz extends JFrame {
 		startPage.add(startPrompt);
 		
 		JPanel firstQuestion = new JPanel();
-		firstQuestion.setBounds(0, 0, 436, 263);
+		firstQuestion.setBounds(0, 227, 436, 36);
 		panel.add(firstQuestion);
 		firstQuestion.setLayout(null);
 		
@@ -73,7 +73,7 @@ public class theRealNicoleQuiz extends JFrame {
 		firstQuestion.add(question_1);
 		
 		JPanel secondQuestion = new JPanel();
-		secondQuestion.setBounds(0, 0, 436, 263);
+		secondQuestion.setBounds(0, 203, 436, 60);
 		panel.add(secondQuestion);
 		secondQuestion.setLayout(null);
 		
@@ -182,6 +182,90 @@ public class theRealNicoleQuiz extends JFrame {
 		});
 		paint.setBounds(185, 172, 89, 23);
 		firstQuestion.add(paint);
+		
+		// Q2
+		JButton michelangelo = new JButton("Michelangelo");
+		michelangelo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				secondQuestion.setVisible(false);
+				thirdQuestion.setVisible(true);
+			}
+		});
+		michelangelo.setBounds(185, 85, 89, 23);
+		secondQuestion.add(michelangelo);
+		
+		JButton beethoven = new JButton("Beethoven");
+		beethoven.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				secondQuestion.setVisible(false);
+				thirdQuestion.setVisible(true);
+			}
+		});
+		beethoven.setBounds(185, 119, 89, 23);
+		secondQuestion.add(beethoven);
+		
+		JButton jerry = new JButton("Jerry ");
+		jerry.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				secondQuestion.setVisible(false);
+				thirdQuestion.setVisible(true);
+			}
+		});
+		jerry.setBounds(185, 153, 89, 23);
+		secondQuestion.add(jerry);
+		
+		JButton barry = new JButton("Barry"); // RIGHT ANSWER
+		barry.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				counter++;
+				secondQuestion.setVisible(false);
+				thirdQuestion.setVisible(true);
+			}
+		});
+		barry.setBounds(185, 187, 89, 23);
+		secondQuestion.add(barry);
+		
+		// Q3
+		JButton boogeyMan = new JButton("Boogey Man");
+		boogeyMan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				thirdQuestion.setVisible(false);
+				fourthQuestion.setVisible(true);
+			}
+		});
+		boogeyMan.setBounds(198, 60, 89, 23);
+		thirdQuestion.add(boogeyMan);
+		
+		JButton wetSocks = new JButton("Wet socks"); //RIGHT ANSWER
+		wetSocks.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				counter++;
+				thirdQuestion.setVisible(false);
+				fourthQuestion.setVisible(true);
+			}
+		});
+		wetSocks.setBounds(198, 94, 89, 23);
+		thirdQuestion.add(wetSocks);
+		
+		JButton bowTiePasta = new JButton("Bow tie pasta");
+		bowTiePasta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				thirdQuestion.setVisible(false);
+				fourthQuestion.setVisible(true);
+			}
+		});
+		bowTiePasta.setBounds(198, 128, 89, 23);
+		thirdQuestion.add(bowTiePasta);
+		
+		JButton wrinkledTShirt = new JButton("Wrinkled t-shirt");
+		wrinkledTShirt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				thirdQuestion.setVisible(false);
+				fourthQuestion.setVisible(true);
+			}
+		});
+		wrinkledTShirt.setBounds(198, 162, 89, 23);
+		thirdQuestion.add(wrinkledTShirt);
 		
 	}
 }
