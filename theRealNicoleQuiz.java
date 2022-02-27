@@ -47,7 +47,7 @@ public class theRealNicoleQuiz extends JFrame {
 		panel.setLayout(null);
 		
 		JPanel startPage = new JPanel();
-		startPage.setBounds(0, 243, 436, 20);
+		startPage.setBounds(0, 0, 436, 263);
 		panel.add(startPage);
 		startPage.setLayout(null);
 		
@@ -64,7 +64,7 @@ public class theRealNicoleQuiz extends JFrame {
 		startPage.add(startPrompt);
 		
 		JPanel firstQuestion = new JPanel();
-		firstQuestion.setBounds(0, 227, 436, 36);
+		firstQuestion.setBounds(0, 0, 436, 263);
 		panel.add(firstQuestion);
 		firstQuestion.setLayout(null);
 		
@@ -73,7 +73,7 @@ public class theRealNicoleQuiz extends JFrame {
 		firstQuestion.add(question_1);
 		
 		JPanel secondQuestion = new JPanel();
-		secondQuestion.setBounds(0, 203, 436, 60);
+		secondQuestion.setBounds(0, 0, 436, 263);
 		panel.add(secondQuestion);
 		secondQuestion.setLayout(null);
 		
@@ -267,5 +267,96 @@ public class theRealNicoleQuiz extends JFrame {
 		wrinkledTShirt.setBounds(198, 162, 89, 23);
 		thirdQuestion.add(wrinkledTShirt);
 		
+		// Q4
+		JButton delosRelos = new JButton("Delos Relos");
+		delosRelos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fourthQuestion.setVisible(false);
+				fifthQuestion.setVisible(true);
+			}
+		});
+		delosRelos.setBounds(207, 62, 89, 23);
+		fourthQuestion.add(delosRelos);
+		
+		JButton reyes = new JButton("Reyes");
+		reyes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fourthQuestion.setVisible(false);
+				fifthQuestion.setVisible(true);
+			}
+		});
+		reyes.setBounds(207, 96, 89, 23);
+		fourthQuestion.add(reyes);
+		
+		JButton delosReyes = new JButton("Delos Reyes"); // RIGHT ANSWER
+		delosReyes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				counter++;
+				fourthQuestion.setVisible(false);
+				fifthQuestion.setVisible(true);
+			}
+		});
+		delosReyes.setBounds(207, 129, 89, 23);
+		fourthQuestion.add(delosReyes);
+		
+		JButton dallasTexas = new JButton("Dallas Texas");
+		dallasTexas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fourthQuestion.setVisible(false);
+				fifthQuestion.setVisible(true);
+			}
+		});
+		dallasTexas.setBounds(207, 163, 89, 23);
+		fourthQuestion.add(dallasTexas);
+		
+		// Q5
+		JButton crabWalking = new JButton("Crab walking"); // RIGHT ANSWER
+		crabWalking.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				counter++;
+				fifthQuestion.setVisible(false);
+				scorePage.setVisible(true);
+				scoreFraction.setText(String.valueOf(counter));
+			}
+		});
+		crabWalking.setBounds(92, 51, 89, 23);
+		fifthQuestion.add(crabWalking);
+		
+		JButton millenniumFalcon = new JButton("Millennium Falcon");
+		millenniumFalcon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fifthQuestion.setVisible(false);
+				scorePage.setVisible(true);
+			}
+		});
+		millenniumFalcon.setBounds(92, 85, 89, 23);
+		fifthQuestion.add(millenniumFalcon);
+		
+		JButton unicycle = new JButton("Unicycle");
+		unicycle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fifthQuestion.setVisible(false);
+				scorePage.setVisible(true);
+			}
+		});
+		unicycle.setBounds(191, 51, 89, 23);
+		fifthQuestion.add(unicycle);
+		
+		JButton piggyBackRides = new JButton("Piggy back rides");
+		piggyBackRides.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fifthQuestion.setVisible(false);
+				scorePage.setVisible(true);
+			}
+		});
+		piggyBackRides.setBounds(191, 85, 89, 23);
+		fifthQuestion.add(piggyBackRides);
+		
+		firstQuestion.setVisible(false);
+		secondQuestion.setVisible(false);
+		thirdQuestion.setVisible(false);
+		fourthQuestion.setVisible(false);
+		fifthQuestion.setVisible(false);
+		scorePage.setVisible(false);
 	}
 }
