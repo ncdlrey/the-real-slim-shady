@@ -5,10 +5,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class theRealNicoleQuiz extends JFrame {
 
 	private JPanel contentPane;
+	int counter = 0;
 
 	/**
 	 * Launch the application.
@@ -43,7 +47,7 @@ public class theRealNicoleQuiz extends JFrame {
 		panel.setLayout(null);
 		
 		JPanel startPage = new JPanel();
-		startPage.setBounds(0, 241, 436, 22);
+		startPage.setBounds(0, 0, 436, 263);
 		panel.add(startPage);
 		startPage.setLayout(null);
 		
@@ -56,11 +60,11 @@ public class theRealNicoleQuiz extends JFrame {
 		startPage.add(description);
 		
 		JLabel startPrompt = new JLabel("Click \"START\" to find out!");
-		startPrompt.setBounds(189, 110, 49, 14);
+		startPrompt.setBounds(189, 138, 49, 14);
 		startPage.add(startPrompt);
 		
 		JPanel firstQuestion = new JPanel();
-		firstQuestion.setBounds(0, 220, 436, 43);
+		firstQuestion.setBounds(0, 0, 436, 263);
 		panel.add(firstQuestion);
 		firstQuestion.setLayout(null);
 		
@@ -69,7 +73,7 @@ public class theRealNicoleQuiz extends JFrame {
 		firstQuestion.add(question_1);
 		
 		JPanel secondQuestion = new JPanel();
-		secondQuestion.setBounds(0, 201, 436, 62);
+		secondQuestion.setBounds(0, 0, 436, 263);
 		panel.add(secondQuestion);
 		secondQuestion.setLayout(null);
 		
@@ -78,7 +82,7 @@ public class theRealNicoleQuiz extends JFrame {
 		secondQuestion.add(question_2);
 		
 		JPanel thirdQuestion = new JPanel();
-		thirdQuestion.setBounds(0, 183, 436, 80);
+		thirdQuestion.setBounds(0, 0, 436, 263);
 		panel.add(thirdQuestion);
 		thirdQuestion.setLayout(null);
 		
@@ -87,7 +91,7 @@ public class theRealNicoleQuiz extends JFrame {
 		thirdQuestion.add(question_3);
 		
 		JPanel fourthQuestion = new JPanel();
-		fourthQuestion.setBounds(0, 155, 436, 108);
+		fourthQuestion.setBounds(0, 0, 436, 263);
 		panel.add(fourthQuestion);
 		fourthQuestion.setLayout(null);
 		
@@ -96,7 +100,7 @@ public class theRealNicoleQuiz extends JFrame {
 		fourthQuestion.add(question_4);
 		
 		JPanel fifthQuestion = new JPanel();
-		fifthQuestion.setBounds(0, 129, 436, 134);
+		fifthQuestion.setBounds(0, 0, 436, 263);
 		panel.add(fifthQuestion);
 		fifthQuestion.setLayout(null);
 		
@@ -125,9 +129,59 @@ public class theRealNicoleQuiz extends JFrame {
 		outOfFraction.setBounds(253, 63, 49, 14);
 		scorePage.add(outOfFraction);
 		
-		// HERE'S WHERE THE BUTTON BEGIN!
+		// HERE'S WHERE THE BUTTONS BEGIN!
+		// button that takes you to the first question
+		JButton start = new JButton("START");
+		start.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				startPage.setVisible(false);
+				firstQuestion.setVisible(true);
+			}
+		});
+		start.setBounds(189, 104, 89, 23);
+		startPage.add(start);
 		
+		// Q1
+		JButton goldfish = new JButton("Goldfish");
+		goldfish.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				firstQuestion.setVisible(false);
+				secondQuestion.setVisible(true);
+			}
+		});
+		goldfish.setBounds(185, 70, 89, 23);
+		firstQuestion.add(goldfish);
 		
+		JButton dimes = new JButton("Dimes");
+		dimes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				firstQuestion.setVisible(false);
+				secondQuestion.setVisible(true);
+			}
+		});
+		dimes.setBounds(185, 104, 89, 23);
+		firstQuestion.add(dimes);
+		
+		JButton gummyWorms = new JButton("Gummy Worms");
+		gummyWorms.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				firstQuestion.setVisible(false);
+				secondQuestion.setVisible(true);
+			}
+		});
+		gummyWorms.setBounds(185, 138, 89, 23);
+		firstQuestion.add(gummyWorms);
+		
+		JButton paint = new JButton("Paint"); // RIGHT ANSWER
+		paint.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				counter++;
+				firstQuestion.setVisible(false);
+				secondQuestion.setVisible(true);
+			}
+		});
+		paint.setBounds(185, 172, 89, 23);
+		firstQuestion.add(paint);
 		
 	}
 }
