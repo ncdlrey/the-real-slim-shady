@@ -1,3 +1,10 @@
+/**
+ * a short description here
+ * 
+ * date         20210227
+ * @filename    theRealNicoleQuiz.java
+ * @author      Nicole D.
+ */
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -7,19 +14,30 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
 public class theRealNicoleQuiz extends JFrame {
-	int counter = 0;
-	private JPanel contentPane;
+	int correctCount = 0;
+	final int TOTAL_QUESTIONS = 5;
+	double totalMark;
+	int totalIncorrect = 0;
+
 	
+	final String PERFECT = "You know Nicole so well! Great Job!";
+	final String OKAY = "Nice job!";
+	final String AWKWARD = "Well this is awkward.";
+	final String FAILURE = "Wow, how dare you.";
+	
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -36,7 +54,6 @@ public class theRealNicoleQuiz extends JFrame {
 	 * Create the frame.
 	 */
 	public theRealNicoleQuiz() {
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -135,38 +152,54 @@ public class theRealNicoleQuiz extends JFrame {
 		JLabel yay = new JLabel("You finished the quiz! Yay!");
 		yay.setHorizontalAlignment(SwingConstants.CENTER);
 		yay.setFont(new Font("Tahoma", Font.BOLD, 18));
-		yay.setBounds(34, 35, 355, 31);
+		yay.setBounds(51, 35, 355, 31);
 		scorePage.add(yay);
 		
 		JLabel displayScore = new JLabel("You scored:");
 		displayScore.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		displayScore.setBounds(90, 77, 85, 31);
+		displayScore.setBounds(72, 126, 85, 31);
 		scorePage.add(displayScore);
 		
 		JLabel scoreFraction = new JLabel("0");
 		scoreFraction.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		scoreFraction.setBounds(179, 82, 22, 21);
+		scoreFraction.setBounds(161, 131, 22, 21);
 		scorePage.add(scoreFraction);
 		
 		JLabel outOfFraction = new JLabel("/5");
 		outOfFraction.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		outOfFraction.setBounds(193, 82, 45, 21);
+		outOfFraction.setBounds(175, 131, 45, 21);
 		scorePage.add(outOfFraction);
 		
 		JLabel markDisplay = new JLabel("Mark:");
 		markDisplay.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		markDisplay.setBounds(90, 119, 45, 21);
+		markDisplay.setBounds(72, 168, 45, 21);
 		scorePage.add(markDisplay);
 		
-		JLabel markPercent = new JLabel("0");
+		JLabel markPercent = new JLabel("");
 		markPercent.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		markPercent.setBounds(145, 119, 69, 21);
+		markPercent.setBounds(114, 168, 69, 21);
 		scorePage.add(markPercent);
 		
-		JLabel finalAdvice = new JLabel("");
-		finalAdvice.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		finalAdvice.setBounds(90, 151, 273, 74);
-		scorePage.add(finalAdvice);
+		JLabel incorrectAnswers = new JLabel("Incorrect answers:");
+		incorrectAnswers.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		incorrectAnswers.setBounds(230, 133, 126, 21);
+		scorePage.add(incorrectAnswers);
+		
+		JLabel tooBad = new JLabel("TOO BAD!");
+		tooBad.setHorizontalAlignment(SwingConstants.CENTER);
+		tooBad.setBounds(248, 113, 72, 14);
+		scorePage.add(tooBad);
+		
+		JLabel totalIncorrect = new JLabel("0");
+		totalIncorrect.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		totalIncorrect.setBounds(357, 136, 49, 14);
+		scorePage.add(totalIncorrect);
+		
+		JLabel comment = new JLabel("");
+		comment.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		comment.setBounds(230, 173, 133, 16);
+		scorePage.add(comment);
+		
 		
 		// HERE'S WHERE THE BUTTONS BEGIN!
 		// button that takes you to the first question
@@ -219,9 +252,9 @@ public class theRealNicoleQuiz extends JFrame {
 		paint.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		paint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				counter=counter+1;
 				firstQuestion.setVisible(false);
 				secondQuestion.setVisible(true);
+				correctCount++;
 			}
 		});
 		paint.setBounds(231, 146, 141, 29);
@@ -265,9 +298,9 @@ public class theRealNicoleQuiz extends JFrame {
 		barry.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		barry.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				counter=counter+1;
 				secondQuestion.setVisible(false);
 				thirdQuestion.setVisible(true);
+				correctCount++;
 			}
 		});
 		barry.setBounds(232, 146, 141, 35);
@@ -289,9 +322,9 @@ public class theRealNicoleQuiz extends JFrame {
 		wetSocks.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		wetSocks.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				counter=counter+1;
 				thirdQuestion.setVisible(false);
 				fourthQuestion.setVisible(true);
+				correctCount++;
 			}
 		});
 		wetSocks.setBounds(45, 155, 164, 31);
@@ -346,9 +379,9 @@ public class theRealNicoleQuiz extends JFrame {
 		delosReyes.setFont(new Font("Dialog", Font.PLAIN, 16));
 		delosReyes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				counter=counter+1;
 				fourthQuestion.setVisible(false);
 				fifthQuestion.setVisible(true);
+				correctCount++;
 			}
 		});
 		delosReyes.setBounds(226, 94, 143, 35);
@@ -370,21 +403,9 @@ public class theRealNicoleQuiz extends JFrame {
 		crabWalking.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		crabWalking.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				counter=counter+1;
-				int totalMark = (counter/5)*100;
 				fifthQuestion.setVisible(false);
 				scorePage.setVisible(true);
-				scoreFraction.setText(String.valueOf(counter));
-				markPercent.setText(String.valueOf(totalMark + "%"));
-				
-				/*
-				if (totalMark == 100){
-					finalAdvice.setText(String.valueOf("You know Nicole so well! Great Job!"));}
-				else if (totalMark == 80) {
-					finalAdvice.setText(String.valueOf("Nice job!"));}
-				else {
-					finalAdvice.setText(String.valueOf("This is awkward."));}
-					*/
+				correctCount++;
 			}
 		});
 		crabWalking.setBounds(68, 91, 150, 37);
@@ -423,12 +444,69 @@ public class theRealNicoleQuiz extends JFrame {
 		piggyBackRides.setBounds(228, 139, 150, 37);
 		fifthQuestion.add(piggyBackRides);
 		
+		JButton results = new JButton("YES!");
+		results.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				totalMark = ((double)correctCount/(double)TOTAL_QUESTIONS)*100;
+				
+				DecimalFormat df = new DecimalFormat("###.##");
+				markPercent.setText(String.valueOf(df.format(totalMark) + "%"));
+				
+				scoreFraction.setText(String.valueOf(correctCount));
+				
+				totalIncorrect.setText(String.valueOf(TOTAL_QUESTIONS - correctCount));
+				
+				if (totalMark == 100){
+					comment.setText(PERFECT);}
+				else if (totalMark == 80) {
+					comment.setText(OKAY);}
+				else if(totalMark == 60) {
+					comment.setText(AWKWARD);}
+				else {
+					comment.setText(FAILURE);}
+				
+			}
+		});
+		results.setBounds(110, 77, 103, 31);
+		scorePage.add(results);
+		
+		JButton stillResults = new JButton("NO!");
+		stillResults.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tooBad.setVisible(true);
+				
+				totalMark = ((double)correctCount/(double)TOTAL_QUESTIONS)*100;
+				
+				DecimalFormat df = new DecimalFormat("###.##");
+				markPercent.setText(String.valueOf(df.format(totalMark) + "%"));
+
+				scoreFraction.setText(String.valueOf(correctCount));
+				
+				totalIncorrect.setText(String.valueOf(TOTAL_QUESTIONS - correctCount));
+				
+				if (totalMark == 100){
+					comment.setText(PERFECT);}
+				else if (totalMark == 80) {
+					comment.setText(OKAY);}
+				else if(totalMark == 60) {
+					comment.setText(AWKWARD);}
+				else {
+					comment.setText(FAILURE);}
+			}
+		});
+		stillResults.setBounds(228, 77, 103, 31);
+		scorePage.add(stillResults);
+		
+		
 		// Ensure that all JPanels except startPage are visible
+		tooBad.setVisible(false);
 		firstQuestion.setVisible(false);
 		secondQuestion.setVisible(false);
 		thirdQuestion.setVisible(false);
 		fourthQuestion.setVisible(false);
 		fifthQuestion.setVisible(false);
 		scorePage.setVisible(false);
+		
 	}
 }
