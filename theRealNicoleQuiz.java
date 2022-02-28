@@ -1,9 +1,7 @@
-/**
- * a short description here
- * 
- * date         20210227
- * @filename    theRealNicoleQuiz.java
- * @author      Nicole D.
+/* a short description here 
+ * date         20210225
+ * filename     theRealNicoleQuiz.java
+ * author       Nicole D.
  */
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -24,7 +22,6 @@ public class theRealNicoleQuiz extends JFrame {
 	final int TOTAL_QUESTIONS = 5;
 	double totalMark;
 	int totalIncorrect = 0;
-
 	
 	final String PERFECT = "You know Nicole so well! Great Job!";
 	final String OKAY = "Nice job!";
@@ -50,9 +47,7 @@ public class theRealNicoleQuiz extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public theRealNicoleQuiz() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -67,6 +62,10 @@ public class theRealNicoleQuiz extends JFrame {
 		panel.setLayout(null);
 		
 		JPanel startPage = new JPanel();
+		startPage.setBounds(0, 0, 28, 263);
+		contentPane.add(panel);
+		startPage.setLayout(null);
+		
 		startPage.setBounds(0, 0, 436, 263);
 		panel.add(startPage);
 		startPage.setLayout(null);
@@ -197,12 +196,9 @@ public class theRealNicoleQuiz extends JFrame {
 		
 		JLabel comment = new JLabel("");
 		comment.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		comment.setBounds(230, 173, 133, 16);
+		comment.setBounds(171, 173, 197, 16);
 		scorePage.add(comment);
 		
-		
-		// HERE'S WHERE THE BUTTONS BEGIN!
-		// button that takes you to the first question
 		JButton start = new JButton("START");
 		start.setFont(new Font("Tahoma", Font.BOLD, 16));
 		start.addActionListener(new ActionListener() {
@@ -214,7 +210,6 @@ public class theRealNicoleQuiz extends JFrame {
 		start.setBounds(135, 124, 158, 38);
 		startPage.add(start);
 		
-		// Q1
 		JButton goldfish = new JButton("Goldfish");
 		goldfish.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		goldfish.addActionListener(new ActionListener() {
@@ -248,7 +243,7 @@ public class theRealNicoleQuiz extends JFrame {
 		gummyWorms.setBounds(231, 104, 141, 32);
 		firstQuestion.add(gummyWorms);
 		
-		JButton paint = new JButton("Paint"); // RIGHT ANSWER
+		JButton paint = new JButton("Paint"); 
 		paint.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		paint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -260,7 +255,6 @@ public class theRealNicoleQuiz extends JFrame {
 		paint.setBounds(231, 146, 141, 29);
 		firstQuestion.add(paint);
 		
-		// Q2
 		JButton michelangelo = new JButton("Michelangelo");
 		michelangelo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		michelangelo.addActionListener(new ActionListener() {
@@ -294,7 +288,7 @@ public class theRealNicoleQuiz extends JFrame {
 		jerry.setBounds(226, 100, 147, 35);
 		secondQuestion.add(jerry);
 		
-		JButton barry = new JButton("Barry"); // RIGHT ANSWER
+		JButton barry = new JButton("Barry"); 
 		barry.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		barry.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -306,7 +300,6 @@ public class theRealNicoleQuiz extends JFrame {
 		barry.setBounds(232, 146, 141, 35);
 		secondQuestion.add(barry);
 		
-		// Q3
 		JButton boogeyMan = new JButton("Boogey Man");
 		boogeyMan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		boogeyMan.addActionListener(new ActionListener() {
@@ -352,7 +345,6 @@ public class theRealNicoleQuiz extends JFrame {
 		wrinkledTShirt.setBounds(219, 155, 164, 31);
 		thirdQuestion.add(wrinkledTShirt);
 		
-		// Q4
 		JButton delosRelos = new JButton("Delos Relos");
 		delosRelos.setFont(new Font("Dialog", Font.PLAIN, 16));
 		delosRelos.addActionListener(new ActionListener() {
@@ -375,7 +367,7 @@ public class theRealNicoleQuiz extends JFrame {
 		reyes.setBounds(73, 140, 143, 35);
 		fourthQuestion.add(reyes);
 		
-		JButton delosReyes = new JButton("Delos Reyes"); // RIGHT ANSWER
+		JButton delosReyes = new JButton("Delos Reyes"); 
 		delosReyes.setFont(new Font("Dialog", Font.PLAIN, 16));
 		delosReyes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -398,8 +390,7 @@ public class theRealNicoleQuiz extends JFrame {
 		dallasTexas.setBounds(226, 140, 143, 35);
 		fourthQuestion.add(dallasTexas);
 		
-		// Q5
-		JButton crabWalking = new JButton("Crab walking"); // RIGHT ANSWER
+		JButton crabWalking = new JButton("Crab walking"); 
 		crabWalking.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		crabWalking.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -465,7 +456,6 @@ public class theRealNicoleQuiz extends JFrame {
 					comment.setText(AWKWARD);}
 				else {
 					comment.setText(FAILURE);}
-				
 			}
 		});
 		results.setBounds(110, 77, 103, 31);
@@ -498,8 +488,6 @@ public class theRealNicoleQuiz extends JFrame {
 		stillResults.setBounds(228, 77, 103, 31);
 		scorePage.add(stillResults);
 		
-		
-		// Ensure that all JPanels except startPage are visible
 		tooBad.setVisible(false);
 		firstQuestion.setVisible(false);
 		secondQuestion.setVisible(false);
