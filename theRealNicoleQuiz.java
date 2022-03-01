@@ -435,7 +435,8 @@ public class theRealNicoleQuiz extends JFrame {
 		piggyBackRides.setBounds(228, 139, 150, 37);
 		fifthQuestion.add(piggyBackRides);
 		
-		JButton results = new JButton("YES!");
+		JButton results = new JButton("SHOW MY RESULTS!");
+		results.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		results.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -458,10 +459,11 @@ public class theRealNicoleQuiz extends JFrame {
 					comment.setText(FAILURE);}
 			}
 		});
-		results.setBounds(110, 77, 103, 31);
+		results.setBounds(35, 77, 178, 31);
 		scorePage.add(results);
 		
-		JButton stillResults = new JButton("NO!");
+		JButton stillResults = new JButton("DON'T SHOW MY RESULTS!");
+		stillResults.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		stillResults.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tooBad.setVisible(true);
@@ -485,7 +487,7 @@ public class theRealNicoleQuiz extends JFrame {
 					comment.setText(FAILURE);}
 			}
 		});
-		stillResults.setBounds(228, 77, 103, 31);
+		stillResults.setBounds(228, 77, 178, 31);
 		scorePage.add(stillResults);
 		
 		tooBad.setVisible(false);
